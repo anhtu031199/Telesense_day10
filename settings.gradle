@@ -1,0 +1,3 @@
+rootProject.name = "Telesense_day10"
+include ':app'
+
