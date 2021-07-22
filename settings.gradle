@@ -1,3 +1,15 @@
 rootProject.name = "Telesense_day10"
 include ':app'
 
+include ':data'
+
+include ':data:model'
+include ':data:local'
+include ':data:remote'
+include ':data:repository'
+include ':navigation'
+include ':common_test'
+include ':feature'
+include ':feature:detail'
+include ':feature:home'
+include ':common'

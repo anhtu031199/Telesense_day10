@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="Telesense_day10.app" target="11" />
+      <module name="Telesense_day10.buildSrc" target="11" />
+      <module name="Telesense_day10.common" target="11" />
+      <module name="Telesense_day10.common_test" target="11" />
+      <module name="Telesense_day10.data.local" target="11" />
+      <module name="Telesense_day10.data.model" target="11" />
+      <module name="Telesense_day10.data.remote" target="11" />
+      <module name="Telesense_day10.data.repository" target="11" />
+      <module name="Telesense_day10.feature.detail" target="11" />
+      <module name="Telesense_day10.feature.home" target="11" />
+      <module name="Telesense_day10.navigation" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
