@@ -20,7 +20,7 @@ dependencies {
     implementation project(Modules.repository)
     // FEATURES modules
 //    implementation project(Modules.featureHome)
-//    implementation project(Modules.featureDetail)
+    implementation project(Modules.featureDetail)
     // NAVIGATION
     implementation project(Modules.navigation)
     // KOIN
@@ -30,6 +30,7 @@ dependencies {
     implementation AndroidLibraries.appCompat
     implementation AndroidLibraries.navigation
     implementation AndroidLibraries.navigationFrag
+    // RETROFIT
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
