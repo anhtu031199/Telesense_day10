@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
+
 import com.bumptech.glide.Glide
 import com.example.common.base.BaseFragment
 import com.example.common.base.BaseViewModel
@@ -22,7 +24,7 @@ class DetailImageFragment: BaseFragment() {
 
     // FOR DATA
     private lateinit var binding: FragmentDetailImageBinding
-    private val args: DetailImageFragmentArgs by navArgs()
+    private val args: DetailImageFragment by navArgs()
 
     private val viewModel: DetailImageViewModel by viewModel()
 

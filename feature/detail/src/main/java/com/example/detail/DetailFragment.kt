@@ -24,9 +24,7 @@ class DetailFragment : BaseFragment() {
     private val viewModel: DetailViewModel by viewModel()
     private lateinit var binding: FragmentDetailBinding
 
-
     private val args: DetailFragment by navArgs()
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
