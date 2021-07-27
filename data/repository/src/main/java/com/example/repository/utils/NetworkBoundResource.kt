@@ -9,7 +9,6 @@ import kotlinx.coroutines.*
 import java.lang.Exception
 import kotlin.coroutines.coroutineContext
 
-
 abstract class NetworkBoundResource<ResultType, RequestType> {
 
     private val result = MutableLiveData<Resource<ResultType>>()
@@ -23,11 +22,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
             val dbResult = loadFromDb()
             if (shouldFetch(dbResult)) {
                 try {
-                    if(dbResult!=null)
-                    {
-                        fetchFromNetwork(dbResult)
-                    }
-
+                    fetchFromNetwork(dbResult)
                 } catch (e: Exception) {
                     Log.e("NetworkBoundResource", "An error happened: $e")
                     setValue(Resource.error(e, loadFromDb()))
@@ -69,7 +64,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
     protected abstract fun shouldFetch(data: ResultType?): Boolean
 
     @MainThread
-    protected abstract suspend fun loadFromDb(): ResultType?
+    protected abstract suspend fun loadFromDb(): ResultType
 
     @MainThread
     protected abstract fun createCallAsync(): Deferred<RequestType>

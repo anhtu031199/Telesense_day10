@@ -16,8 +16,8 @@ object Modules {
     val model = ":data:model"
     val repository = ":data:repository"
 
-    val featureHome = ":features:home"
-    val featureDetail = ":features:detail"
+    val featureHome = ":feature:home"
+    val featureDetail = ":feature:detail"
 }
 
 object Releases {

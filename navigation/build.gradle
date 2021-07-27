@@ -5,6 +5,6 @@ apply from: '../android_commons.gradle'
 dependencies {
     implementation AndroidLibraries.navigation
     implementation AndroidLibraries.navigationFrag
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 }

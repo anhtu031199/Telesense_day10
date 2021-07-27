@@ -1,6 +1,7 @@
 package com.example.telesense_day10
 
 import android.app.Application
+import io.philippeboisney.archapp.di.appComponent
 import org.koin.android.ext.android.startKoin
 
 open class App : Application(){

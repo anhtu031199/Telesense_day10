@@ -1,6 +1,5 @@
 package com.example.repository.utils
 
-
 data class Resource<out T>(val status: Status, val data: T?, val error: Throwable?) {
     companion object {
         fun <T> success(data: T?): Resource<T> {
