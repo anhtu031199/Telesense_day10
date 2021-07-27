@@ -7,7 +7,7 @@ import org.koin.android.ext.android.startKoin
 open class App : Application(){
     override fun onCreate() {
         super.onCreate()
-
+        configureDi()
     }
     open fun configureDi() =
         startKoin(this, provideComponent())

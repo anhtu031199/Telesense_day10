@@ -40,8 +40,10 @@ class DetailViewModel(private val getUserDetailUseCase: GetUserDetailUseCase,
     fun reloadDataWhenUserRefreshes()
             = getUserDetail(true)
 
-    fun userClicksOnAvatarImage(user: User)
-            = navigate(DetailFragmentDirections.actionDetailFragmentToImageDetailFragment(user.avatar_url))
+    fun userClicksOnAvatarImage(user: User){
+        return navigate(DetailFragmentDirections.actionDetailFragmentToImageDetailFragment(user.avatar_url))
+    }
+
 
     // ---
 

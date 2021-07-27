@@ -9,18 +9,17 @@ import java.util.concurrent.TimeUnit
 
 @Entity
 data class User (
-
     @PrimaryKey
     @SerializedName("id")
     var id: String,
     @SerializedName("name")
-    var name: String?,
+    var name: String,
     @SerializedName("phone")
     var phone: String? ,
     @SerializedName("address")
     var address: String?,
     @SerializedName("avatar_url")
-    var avatar_url: String?,
+    var avatar_url: String,
     var lastRefreshed: Date
 )
 {

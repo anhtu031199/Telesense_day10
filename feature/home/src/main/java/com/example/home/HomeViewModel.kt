@@ -32,8 +32,11 @@ class HomeViewModel(private val getTopUsersUseCase: GetTopUsersUseCase,
     }
 
     // PUBLIC ACTIONS ---
-//    fun userClicksOnItem(user: User)
-//            = navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(user.name))
+    fun userClicksOnItem(user: User){
+//        navigate(Home)
+        return navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(user.name))
+    }
+
 
 
     fun userRefreshesItems()
