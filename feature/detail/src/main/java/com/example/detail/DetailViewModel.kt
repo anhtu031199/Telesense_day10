@@ -18,29 +18,29 @@ import kotlinx.coroutines.withContext
  * A simple [BaseViewModel] that provide the data and handle logic to communicate with the model
  * for [DetailFragment].
  */
-class DetailViewModel(private val getUserDetailUseCase: GetUserDetailUseCase,
-                      private val dispatchers: AppDispatchers
-): BaseViewModel() {
+class DetailViewModel(
+    private val getUserDetailUseCase: GetUserDetailUseCase,
+    private val dispatchers: AppDispatchers
+) : BaseViewModel() {
 
     // PRIVATE DATA
-    private lateinit var argsLogin: String
+
     private var userSource: LiveData<Resource<User>> = MutableLiveData()
 
     private val _user = MediatorLiveData<User>()
     val user: LiveData<User> get() = _user
     private val _isLoading = MutableLiveData<Resource.Status>()
     val isLoading: LiveData<Resource.Status> get() = _isLoading
-
+    private var argsLogin: String = "null"
     // PUBLIC ACTIONS ---
     fun loadDataWhenActivityStarts() {
 
         getUserDetail(false)
     }
 
-    fun reloadDataWhenUserRefreshes()
-            = getUserDetail(true)
+    fun reloadDataWhenUserRefreshes() = getUserDetail(true)
 
-    fun userClicksOnAvatarImage(user: User){
+    fun userClicksOnAvatarImage(user: User) {
         return navigate(DetailFragmentDirections.actionDetailFragmentToImageDetailFragment(user.avatar_url))
     }
 
@@ -49,11 +49,14 @@ class DetailViewModel(private val getUserDetailUseCase: GetUserDetailUseCase,
 
     private fun getUserDetail(forceRefresh: Boolean) = viewModelScope.launch(dispatchers.main) {
         _user.removeSource(userSource) // We make sure there is only one source of livedata (allowing us properly refresh)
-        withContext(dispatchers.io) { userSource = getUserDetailUseCase(forceRefresh = forceRefresh, login = argsLogin) }
+        withContext(dispatchers.io) {
+            userSource = getUserDetailUseCase(forceRefresh = forceRefresh, login = argsLogin)
+        }
         _user.addSource(userSource) {
             _user.value = it.data
             _isLoading.value = it.status
-            if (it.status == Resource.Status.ERROR) _snackbarError.value = Event(R.string.an_error_happened)
+            if (it.status == Resource.Status.ERROR) _snackbarError.value =
+                Event(R.string.an_error_happened)
         }
     }
 }

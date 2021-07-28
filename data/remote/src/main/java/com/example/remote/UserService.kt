@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface UserService {
 
     @GET("getDemoData")
-    fun fetchTopUsersAsync(): Deferred<ApiResult<User>>
+    fun fetchTopUsersAsync(): Deferred<List<User>>
     @GET("getDemoData")
     fun fetchUserDetailsAsync(): Deferred<User>
 }

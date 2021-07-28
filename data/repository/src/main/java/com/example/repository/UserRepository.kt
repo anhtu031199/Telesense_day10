@@ -24,10 +24,10 @@ class UserRepositoryImpl(private val datasource: UserDatasource,
      * [NetworkBoundResource] is responsible to handle this behavior.
      */
     override suspend fun getTopUsersWithCache(forceRefresh: Boolean): LiveData<Resource<List<User>>> {
-        return object : NetworkBoundResource<List<User>, ApiResult<User>>() {
+        return object : NetworkBoundResource<List<User>, List<User>>() {
 
-            override fun processResponse(response: ApiResult<User>): List<User>
-                    = response.items
+//            override fun processResponse(response: ApiResult<User>): List<User>
+//                    = response.items
 
             override suspend fun saveCallResults(items: List<User>)
                     = dao.save(items)
@@ -38,8 +38,10 @@ class UserRepositoryImpl(private val datasource: UserDatasource,
             override suspend fun loadFromDb(): List<User>
                     = dao.getTopUsers()
 
-            override fun createCallAsync(): Deferred<ApiResult<User>>
+            override fun createCallAsync(): Deferred<List<User>>
                     = datasource.fetchTopUsersAsync()
+
+            override fun processResponse(response: List<User>): List<User> = response
 
         }.build().asLiveData()
     }

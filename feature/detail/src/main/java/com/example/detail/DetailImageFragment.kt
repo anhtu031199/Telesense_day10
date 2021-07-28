@@ -24,7 +24,7 @@ class DetailImageFragment: BaseFragment() {
 
     // FOR DATA
     private lateinit var binding: FragmentDetailImageBinding
-    private val args: DetailImageFragment by navArgs()
+//    private val args: DetailImageFragment by navArgs()
 
     private val viewModel: DetailImageViewModel by viewModel()
 
@@ -38,7 +38,7 @@ class DetailImageFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loadDataWhenFragmentStarts(args.imageUrl)
+//        viewModel.loadDataWhenFragmentStarts(args.imageUrl)
     }
 
     override fun getViewModel(): BaseViewModel = viewModel
